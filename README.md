@@ -1,6 +1,6 @@
 # StudioMeyer Memory
 
-> Persistent, intelligent memory for AI agents. 52 MCP tools. Knowledge Graph included in every plan.
+> Persistent, intelligent memory for AI agents. 53 MCP tools. Knowledge Graph included in every plan.
 
 [![MCP Registry](https://img.shields.io/badge/MCP-Registry-blue)](https://registry.modelcontextprotocol.io/servers/io.studiomeyer/memory)
 [![MCPize](https://img.shields.io/badge/MCPize-Marketplace-purple)](https://mcpize.com/mcp/studiomeyer-memory)
@@ -9,7 +9,7 @@
 
 StudioMeyer Memory gives AI agents persistent memory across sessions. Instead of starting fresh every conversation, your agents learn, remember, and improve over time.
 
-**52 MCP tools** for learning, search, knowledge graph, session tracking, multi-agent support, contradiction detection, and self-improvement.
+**53 MCP tools** for learning, search, knowledge graph, session tracking, multi-agent support, contradiction detection, and self-improvement.
 
 ## Connect in 10 Seconds
 
@@ -132,7 +132,7 @@ Full API documentation: [openapi.yaml](openapi.yaml)
 | **Pro** | $29/mo | 2,000 | 30,000 | ✅ |
 | **Team** | $49/mo | Unlimited | Unlimited | ✅ |
 
-All 52 tools available in every plan. Knowledge Graph included from Free.
+All 53 tools available in every plan. Knowledge Graph included from Free.
 
 **Compare:** Mem0 charges $249/mo for Graph Memory. We include it for free.
 
