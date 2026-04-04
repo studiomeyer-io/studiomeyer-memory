@@ -1,0 +1,334 @@
+openapi: 3.1.0
+info:
+  title: StudioMeyer Memory API
+  description: |
+    Persistent, intelligent memory for AI agents. 52 MCP tools accessible via REST API.
+
+    ## Authentication
+    All authenticated endpoints require a Bearer token in the `Authorization` header.
+    Get your API key by calling `POST /api/signup` with your email.
+
+    ## MCP Protocol
+    For MCP-native access (Claude Desktop, Cursor, VS Code), connect to:
+    `https://memory.studiomeyer.io/mcp`
+
+    ## Rate Limits
+    - Free: 200 calls/day
+    - Pro ($29/mo): 2,000 calls/day
+    - Team ($49/mo): Unlimited
+  version: 3.0.0
+  contact:
+    name: StudioMeyer
+    url: https://studiomeyer.io
+    email: hello@studiomeyer.io
+  license:
+    name: Proprietary
+    url: https://memory.studiomeyer.io/terms
+
+servers:
+  - url: https://memory.studiomeyer.io
+    description: Production (EU - Ireland)
+
+security:
+  - BearerAuth: []
+
+paths:
+  /api:
+    get:
+      tags: [Public]
+      summary: API Information
+      security: []
+      operationId: getApiInfo
+      responses:
+        '200':
+          description: API info
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  name: { type: string }
+                  version: { type: string }
+
+  /api/signup:
+    post:
+      tags: [Public]
+      summary: Create Account
+      security: []
+      operationId: signup
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email]
+              properties:
+                email: { type: string, format: email }
+      responses:
+        '200':
+          description: Account created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success: { type: boolean }
+                  apiKey: { type: string }
+                  tenantId: { type: string, format: uuid }
+                  message: { type: string }
+
+  /api/verify:
+    get:
+      tags: [Public]
+      summary: Verify Email
+      security: []
+      operationId: verifyEmail
+      parameters:
+        - name: token
+          in: query
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: Email verified }
+
+  /api/account:
+    get:
+      tags: [Account]
+      summary: Get Account Info
+      operationId: getAccount
+      responses:
+        '200':
+          description: Account info
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  email: { type: string }
+                  plan: { type: string, enum: [free, pro, team] }
+                  limits: { type: object }
+                  usage: { type: object }
+
+  /api/checkout:
+    post:
+      tags: [Account]
+      summary: Create Checkout Session
+      operationId: createCheckout
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [plan]
+              properties:
+                plan: { type: string, enum: [pro, team] }
+      responses:
+        '200':
+          description: Checkout URL
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  url: { type: string, format: uri }
+
+  /api/learn:
+    post:
+      tags: [Memory]
+      summary: Store a Learning
+      description: Duplicate detection built-in (>95% skip, >90% update).
+      operationId: learn
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [category, content]
+              properties:
+                category: { type: string }
+                content: { type: string, maxLength: 10000 }
+                tags: { type: array, items: { type: string } }
+                agentId: { type: string }
+                source: { type: string, enum: [session, user, research, import, automated] }
+                memoryType: { type: string, enum: [episodic, semantic] }
+                confidence: { type: number, minimum: 0, maximum: 1 }
+                project: { type: string }
+                awaitEmbedding: { type: boolean }
+      responses:
+        '200':
+          description: Learning stored
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success: { type: boolean }
+                  action: { type: string, enum: [added, updated, skipped] }
+                  id: { type: string }
+                  message: { type: string }
+        '429': { description: Usage limit exceeded }
+
+  /api/search:
+    post:
+      tags: [Search]
+      summary: Unified Search
+      description: 5-phase parallel search across all knowledge.
+      operationId: search
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [query]
+              properties:
+                query: { type: string }
+                limit: { type: integer, minimum: 1, maximum: 100, default: 20 }
+                types: { type: array, items: { type: string } }
+                agentId: { type: string }
+                recencyWeight: { type: number, minimum: 0, maximum: 1, default: 0.3 }
+                memoryType: { type: string, enum: [episodic, semantic, all] }
+                rerank: { type: boolean, default: false }
+                asOf: { type: string, format: date }
+                dateRangeStart: { type: string, format: date }
+                dateRangeEnd: { type: string, format: date }
+      responses:
+        '200':
+          description: Search results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success: { type: boolean }
+                  results: { type: array, items: { type: object } }
+                  count: { type: integer }
+                  query: { type: string }
+
+  /api/decide:
+    post:
+      tags: [Memory]
+      summary: Log a Decision
+      operationId: decide
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [title, decision, reasoning]
+              properties:
+                title: { type: string }
+                decision: { type: string }
+                reasoning: { type: string }
+                project: { type: string }
+                agentId: { type: string }
+      responses:
+        '200':
+          description: Decision recorded
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success: { type: boolean }
+                  id: { type: string }
+                  message: { type: string }
+
+  /api/entity:
+    post:
+      tags: [Memory]
+      summary: Create or Update Entity
+      operationId: createEntity
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, entityType, observations]
+              properties:
+                name: { type: string }
+                entityType: { type: string }
+                observations: { type: array, items: { type: string } }
+                project: { type: string }
+      responses:
+        '200':
+          description: Entity created/updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success: { type: boolean }
+                  entityId: { type: string }
+                  observationsAdded: { type: integer }
+                  message: { type: string }
+
+  /api/import:
+    post:
+      tags: [Import]
+      summary: Import AI History
+      description: Import from ChatGPT, Claude, Gemini, Copilot, Perplexity.
+      operationId: importHistory
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [data, action]
+              properties:
+                data: { type: string }
+                action: { type: string, enum: [analyze, import] }
+                platform: { type: string, enum: [chatgpt, claude, gemini, copilot, perplexity] }
+      responses:
+        '200':
+          description: Import results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success: { type: boolean }
+                  platform: { type: string }
+                  stats: { type: object }
+                  message: { type: string }
+
+  /api/backfill:
+    post:
+      tags: [Memory]
+      summary: Backfill Embeddings
+      operationId: backfill
+      responses:
+        '200':
+          description: Backfill started
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message: { type: string }
+                  backfilled: { type: integer }
+
+  /api/export:
+    get:
+      tags: [Export]
+      summary: Export All Data
+      operationId: exportData
+      responses:
+        '200':
+          description: Markdown export
+          content:
+            text/markdown:
+              schema: { type: string }
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      description: "API key from POST /api/signup. Keys start with nex_."
