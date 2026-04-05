@@ -139,7 +139,7 @@ All 53 tools available in every plan. Knowledge Graph included from Free.
 ## Security
 
 - **OAuth 2.1** with PKCE — latest authentication standard
-- **Supabase Pro** (EU Ireland) — SOC 2 Type II, GDPR-ready
+- **Supabase Pro** (EU Frankfurt, Germany) — SOC 2 Type II, GDPR-ready
 - **Row Level Security** — tenant isolation at database level
 - **Secret Scanner** — prevents accidental storage of API keys/passwords
 - **Data Export** — `GET /api/export` anytime
