@@ -4,6 +4,7 @@
 
 [![MCP Registry](https://img.shields.io/badge/MCP-Registry-blue)](https://registry.modelcontextprotocol.io/servers/io.studiomeyer/memory)
 [![MCPize](https://img.shields.io/badge/MCPize-Marketplace-purple)](https://mcpize.com/mcp/studiomeyer-memory)
+[![Glama](https://glama.ai/mcp/servers/studiomeyer-io/studiomeyer-memory/badges/score.svg)](https://glama.ai/mcp/servers/studiomeyer-io/studiomeyer-memory)
 
 ## What is this?
 
@@ -168,7 +169,7 @@ See the [examples/](examples/) folder:
 
 ## License
 
-Proprietary. The memory server is a hosted service — this repository contains documentation and examples only.
+MIT — see [LICENSE](LICENSE). The memory server is a hosted service — this repository contains documentation and examples.
 
 ## Links
 
