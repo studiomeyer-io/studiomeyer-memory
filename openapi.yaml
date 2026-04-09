@@ -2,7 +2,7 @@ openapi: 3.1.0
 info:
   title: StudioMeyer Memory API
   description: |
-    Persistent, intelligent memory for AI agents. 52 MCP tools accessible via REST API.
+    Persistent, intelligent memory for AI agents. 53 MCP tools accessible via REST API.
 
     ## Authentication
     All authenticated endpoints require a Bearer token in the `Authorization` header.
@@ -14,9 +14,9 @@ info:
 
     ## Rate Limits
     - Free: 200 calls/day
-    - Pro ($29/mo): 2,000 calls/day
+    - Pro ($29/mo): 5,000 calls/day
     - Team ($49/mo): Unlimited
-  version: 3.0.0
+  version: 3.11.0
   contact:
     name: StudioMeyer
     url: https://studiomeyer.io
@@ -27,7 +27,7 @@ info:
 
 servers:
   - url: https://memory.studiomeyer.io
-    description: Production (EU - Ireland)
+    description: Production (EU Frankfurt, Germany)
 
 security:
   - BearerAuth: []
@@ -175,7 +175,7 @@ paths:
     post:
       tags: [Search]
       summary: Unified Search
-      description: 5-phase parallel search across all knowledge.
+      description: 7-phase parallel search across all knowledge with agentic retrieval.
       operationId: search
       requestBody:
         required: true
@@ -192,6 +192,9 @@ paths:
                 recencyWeight: { type: number, minimum: 0, maximum: 1, default: 0.3 }
                 memoryType: { type: string, enum: [episodic, semantic, all] }
                 rerank: { type: boolean, default: false }
+                agentic: { type: boolean }
+                expand: { type: boolean, default: true }
+                noiseFilter: { type: boolean, default: true }
                 asOf: { type: string, format: date }
                 dateRangeStart: { type: string, format: date }
                 dateRangeEnd: { type: string, format: date }
