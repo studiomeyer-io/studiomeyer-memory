@@ -129,8 +129,8 @@ Full API documentation: [openapi.yaml](openapi.yaml)
 
 | Plan | Price | Calls/Day | Learnings | Knowledge Graph |
 |------|-------|-----------|-----------|------------------|
-| **Free** | $0 | 200 | 1,200 | ✅ |
-| **Pro** | $29/mo | 2,000 | 30,000 | ✅ |
+| **Free** | $0 forever | 200 | 1,000 | ✅ |
+| **Pro** | $29/mo | 5,000 | 25,000 | ✅ |
 | **Team** | $49/mo | Unlimited | Unlimited | ✅ |
 
 All 53 tools available in every plan. Knowledge Graph included from Free.
