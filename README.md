@@ -117,17 +117,19 @@ Full API documentation: [openapi.yaml](openapi.yaml)
 - **LLM extraction** — entities, learnings, decisions, relations
 - **Preview mode** — analyze before importing
 
-## Benchmark Results
+## Benchmark — Work in Progress
 
-**LongMemEval v3: 90%** (GPT-4o official scoring)
+A 10-question stratified pre-flight run on LongMemEval v3 (April 2026, GPT-4o scoring) returned 90% — useful as a smoke test but too small to be the official number.
 
-| System | Score |
-|--------|-------|
-| Mastra OM | 94.87% |
-| Hindsight | 91.4% |
-| **StudioMeyer Memory** | **90%** |
-| Zep/Graphiti | 71.2% |
-| Mem0 | 49% |
+The first full 50-question run came in lower. We are currently in the **60 to 80 percent range, with a clear upward trajectory**. The next clean 50-question multi-category run is scheduled for the coming days, including an assistant-ingest fix and Sonnet 4.5 as the answer generator. We will publish the final score, methodology and full run logs as soon as that run completes — that will be the official number.
+
+**Publicly published scores from other vendors (for reference):**
+
+| System | Score | Source |
+|--------|-------|--------|
+| Mastra Observational Memory | 94.87% | gpt-5-mini, public leaderboard |
+| Hindsight | 91.4% | published |
+| Zep | 63.8% | arXiv 2501.13956 |
 
 ## Pricing
 
