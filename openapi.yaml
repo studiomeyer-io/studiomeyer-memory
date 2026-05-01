@@ -2,7 +2,7 @@ openapi: 3.1.0
 info:
   title: StudioMeyer Memory API
   description: |
-    Persistent, intelligent memory for AI agents. 53 MCP tools accessible via REST API.
+    Persistent, intelligent memory for AI agents. 56 MCP tools (incl. interactive 3D knowledge graph visualization) accessible via REST API.
 
     ## Authentication
     All authenticated endpoints require a Bearer token in the `Authorization` header.

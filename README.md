@@ -4,7 +4,7 @@
 
 # StudioMeyer Memory
 
-> Persistent, intelligent memory for AI agents. 53 MCP tools. Knowledge Graph included in every plan.
+> Persistent, intelligent memory for AI agents. 56 MCP tools (incl. interactive 3D knowledge graph visualization). Knowledge Graph included in every plan.
 
 [![MCP Registry](https://img.shields.io/badge/MCP-Registry-blue)](https://registry.modelcontextprotocol.io/servers/io.studiomeyer/memory)
 [![MCPize](https://img.shields.io/badge/MCPize-Marketplace-purple)](https://mcpize.com/mcp/studiomeyer-memory)
@@ -14,7 +14,7 @@
 
 StudioMeyer Memory gives AI agents persistent memory across sessions. Instead of starting fresh every conversation, your agents learn, remember, and improve over time.
 
-**53 MCP tools** for learning, search, knowledge graph, session tracking, multi-agent support, contradiction detection, and self-improvement.
+**56 MCP tools** for learning, search, knowledge graph, session tracking, multi-agent support, contradiction detection, self-improvement — plus interactive 3D visualization (`nex_graph_view`, `nex_recall_timeline`, `nex_session_replay`) via MCP Apps.
 
 ## Connect in 10 Seconds
 
@@ -133,13 +133,14 @@ The first full 50-question run came in lower. We are currently in the **60 to 80
 
 ## Pricing
 
-| Plan | Price | Calls/Day | Learnings | Knowledge Graph |
-|------|-------|-----------|-----------|------------------|
-| **Free** | $0 forever | 200 | 1,000 | ✅ |
-| **Pro** | $29/mo | 5,000 | 25,000 | ✅ |
-| **Team** | $49/mo | Unlimited | Unlimited | ✅ |
+| Plan | Price | Calls/Day | Learnings | Entities | Knowledge Graph |
+|------|-------|-----------|-----------|----------|------------------|
+| **Free** | $0 forever | 200 | 1,000 | 100 | ✅ |
+| **Pro** | $29/mo | 5,000 | 25,000 | 1,000 | ✅ |
+| **Team** | $49/mo | Unlimited | Unlimited | Unlimited | ✅ |
+| **Scale** | $99/mo | Unlimited | Unlimited | Unlimited | ✅ |
 
-All 53 tools available in every plan. Knowledge Graph included from Free.
+All 56 tools available in every plan — including interactive 3D knowledge graph visualization. Knowledge Graph included from Free.
 
 **Compare:** Mem0 charges $249/mo for Graph Memory. We include it for free.
 
