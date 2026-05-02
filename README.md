@@ -148,16 +148,18 @@ The full whitepaper with methodology, run history and per-question results lives
 
 ## Pricing
 
-| Plan | Price | Calls/Day | Learnings | Entities | Knowledge Graph |
-|------|-------|-----------|-----------|----------|------------------|
-| **Free** | $0 forever | 200 | 1,000 | 100 | ✅ |
-| **Pro** | $29/mo | 5,000 | 25,000 | 1,000 | ✅ |
-| **Team** | $49/mo | Unlimited | Unlimited | Unlimited | ✅ |
-| **Scale** | $99/mo | Unlimited | Unlimited | Unlimited | ✅ |
+| Plan | Price | Calls/Day | Learnings | Entities | Knowledge Graph | Agentic Search + AI Reranker |
+|------|-------|-----------|-----------|----------|------------------|------------------------------|
+| **Free** | $0 forever | 200 | 1,000 | 100 | ✅ | — (simple hybrid search) |
+| **Pro** | $29/mo | 5,000 | 25,000 | 1,000 | ✅ | ✅ |
+| **Team** | $49/mo | Unlimited | Unlimited | Unlimited | ✅ | ✅ |
+| **Scale** | $99/mo | Unlimited | Unlimited | Unlimited | ✅ | ✅ |
 
 All 56 tools available in every plan — including interactive 3D knowledge graph visualization. Knowledge Graph included from Free.
 
-**Compare:** Mem0 charges $249/mo for Graph Memory. We include it for free.
+**What's the difference?** Free uses our hybrid search stack (Trigram + FTS + pgvector + Knowledge-Graph traversal + RRF fusion + temporal decay + per-tenant isolation) — fast, deterministic, no LLM cost. Pro+ adds **agentic retrieval**: an iterative completeness check (Haiku LLM) that detects when a complex query (multi-hop, temporal computation, aggregation, list ordering) needs a refined re-query. On LongMemEval-class benchmarks this lifts recall by 5-10pp on the hardest categories.
+
+**Compare:** Mem0 charges $249/mo for Graph Memory. We include it from Free.
 
 ## Security
 
