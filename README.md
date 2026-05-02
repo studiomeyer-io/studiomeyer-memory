@@ -188,9 +188,9 @@ See the [examples/](examples/) folder:
 - **OpenAPI Spec:** [openapi.yaml](openapi.yaml)
 - **MCP Registry:** [io.studiomeyer/memory](https://registry.modelcontextprotocol.io/servers/io.studiomeyer/memory)
 
-## Built By
+## About StudioMeyer
 
-[StudioMeyer](https://studiomeyer.io) — AI agency based in Spain. Building intelligent systems since 2024.
+[StudioMeyer](https://studiomeyer.io) is an AI and design studio from Palma de Mallorca, building custom websites and AI infrastructure for small and medium businesses. Production stack on Claude Agent SDK, MCP, n8n and an in-house observability and guard layer.
 
 ## License
 
