@@ -4,6 +4,8 @@
 
 # StudioMeyer Memory
 
+[![smithery badge](https://smithery.ai/badge/cod-gb2l/StudioMeyer-Memory)](https://smithery.ai/servers/cod-gb2l/StudioMeyer-Memory)
+
 > Persistent, intelligent memory for AI agents. 56 MCP tools (incl. interactive 3D knowledge graph visualization). Knowledge Graph included in every plan.
 
 [![MCP Registry](https://img.shields.io/badge/MCP-Registry-blue)](https://registry.modelcontextprotocol.io/servers/io.studiomeyer/memory)
