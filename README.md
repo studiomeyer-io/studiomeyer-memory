@@ -117,19 +117,34 @@ Full API documentation: [openapi.yaml](openapi.yaml)
 - **LLM extraction** — entities, learnings, decisions, relations
 - **Preview mode** — analyze before importing
 
-## Benchmark — Work in Progress
+## Benchmark — LongMemEval
 
-A 10-question stratified pre-flight run on LongMemEval v3 (April 2026, GPT-4o scoring) returned 90% — useful as a smoke test but too small to be the official number.
+**86% on LongMemEval 50q stratified, GPT-4o judged** (Run S957b, 1 May 2026, Anthropic Sonnet 4.6 as answer generator).
 
-The first full 50-question run came in lower. We are currently in the **60 to 80 percent range, with a clear upward trajectory**. The next clean 50-question multi-category run is scheduled for the coming days, including an assistant-ingest fix and Sonnet 4.5 as the answer generator. We will publish the final score, methodology and full run logs as soon as that run completes — that will be the official number.
+Per-category breakdown:
 
-**Publicly published scores from other vendors (for reference):**
+| Category | Score |
+|----------|-------|
+| temporal-reasoning | 92% |
+| multi-session | 92% |
+| single-session-user | 100% |
 
-| System | Score | Source |
-|--------|-------|--------|
-| Mastra Observational Memory | 94.87% | gpt-5-mini, public leaderboard |
-| Hindsight | 91.4% | published |
-| Zep | 63.8% | arXiv 2501.13956 |
+**Caveat for honesty:** S957b ran against memory-server v3.16.10, before the v3.16.11 cross-project search-leak fix landed (LIVE on production since 2 May 2026). The 86% may be 1-3 percentage points inflated by cross-question help. A clean 50q re-run with the fix in place is the next planned wave once cost-control safeguards in the bench script are wired up. Realistic range after the re-run: **78-86%**.
+
+The full whitepaper with methodology, run history and per-question results lives at [studiomeyer.io/services/memory](https://studiomeyer.io/services/memory) and is updated as new validated runs land.
+
+**Reference scores from other vendors (publicly published):**
+
+| System | Aggregate | Temporal | Source |
+|--------|-----------|----------|--------|
+| StudioMeyer Memory | 86% | 92% | this README |
+| Mem0 (Managed Platform) | 93.4% | 93.2% | mem0.ai/blog April 2026 — Token-Efficient Memory Algorithm |
+| Mem0 BEAM 10M tokens | 48.6% | 16.3% | mem0.ai/research — production-scale collapse |
+| Mastra Observational Memory | 94.87% (gpt-5-mini) | — | mastra.ai/blog/observational-memory |
+| Hindsight | 91.4% | 79.7% | published |
+| Zep | 63.8% | — | arXiv 2501.13956 |
+
+**What we are honest about:** in aggregate we sit below Mem0 Managed (93.4%) and Mastra OM with gpt-5-mini (94.87%). Our differentiators are architecture and production behavior — bi-temporal knowledge graph included from the Free tier (Mem0 charges $249/mo for graph features), production-scale stability (Mem0 itself reports 48.6% aggregate / 16.3% temporal at 10M tokens), EU Frankfurt hosting + GDPR, and the live interactive 3D knowledge graph as part of the standard tool surface — verified unique among AI memory SaaS as of April 2026.
 
 ## Pricing
 

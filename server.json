@@ -1,1 +1,8 @@
-ewogICIkc2NoZW1hIjogImh0dHBzOi8vc3RhdGljLm1vZGVsY29udGV4dHByb3RvY29sLmlvL3NjaGVtYXMvMjAyNS0xMi0xMS9zZXJ2ZXIuc2NoZW1hLmpzb24iLAogICJuYW1lIjogImlvLnN0dWRpb21leWVyL21lbW9yeSIsCiAgInRpdGxlIjogIlN0dWRpb01leWVyIE1lbW9yeSIsCiAgImRlc2NyaXB0aW9uIjogIkFJIG1lbW9yeSBzZXJ2ZXIgd2l0aCA1MyB0b29scy4gS25vd2xlZGdlIEdyYXBoLCBzZW1hbnRpYyBzZWFyY2gsIHNlc3Npb24gdHJhY2tpbmcsIG11bHRpLWFnZW50IHN1cHBvcnQsIGNvbnRyYWRpY3Rpb24gZGV0ZWN0aW9uLCBzZWxmLWltcHJvdmVtZW50LiBNYWdpYyBMaW5rIGVtYWlsIHZlcmlmaWNhdGlvbiDigJQgbm8gcGFzc3dvcmRzLiBGcmVlIHRpZXIgYXZhaWxhYmxlLiBFVSBob3N0ZWQgKEZyYW5rZnVydCkuIiwKICAidmVyc2lvbiI6ICIzLjExLjEiLAogICJyZW1vdGVzIjogW3sgInR5cGUiOiAic3RyZWFtYWJsZS1odHRwIiwgInVybCI6ICJodHRwczovL21lbW9yeS5zdHVkaW9tZXllci5pby9tY3AiIH1dCn0K
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.studiomeyer/memory",
+  "title": "StudioMeyer Memory",
+  "description": "Bi-temporal AI memory server — 56 MCP tools including interactive 3D knowledge graph, recall timeline and session replay (MCP Apps spec 2026-01-26). Knowledge Graph included in every plan, no upsell. Magic Link authentication, no passwords. EU hosted (Frankfurt), GDPR-ready. Free tier available.",
+  "version": "3.16.11",
+  "remotes": [{ "type": "streamable-http", "url": "https://memory.studiomeyer.io/mcp" }]
+}
