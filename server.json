@@ -3,6 +3,6 @@
   "name": "io.studiomeyer/memory",
   "title": "StudioMeyer Memory",
   "description": "Bi-temporal AI memory server — 56 MCP tools including interactive 3D knowledge graph, recall timeline and session replay (MCP Apps spec 2026-01-26). Knowledge Graph included in every plan, no upsell. Magic Link authentication, no passwords. EU hosted (Frankfurt), GDPR-ready. Free tier available.",
-  "version": "3.16.11",
+  "version": "3.21.2",
   "remotes": [{ "type": "streamable-http", "url": "https://memory.studiomeyer.io/mcp" }]
 }

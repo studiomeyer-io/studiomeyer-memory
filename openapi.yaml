@@ -14,9 +14,9 @@ info:
 
     ## Rate Limits
     - Free: 200 calls/day
-    - Pro ($29/mo): 5,000 calls/day
-    - Team ($49/mo): Unlimited
-  version: 3.11.0
+    - Pro (19€/mo): 5,000 calls/day
+    - Team (39€/mo): Unlimited
+  version: 3.21.2
   contact:
     name: StudioMeyer
     url: https://studiomeyer.io
