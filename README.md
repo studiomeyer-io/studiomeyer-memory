@@ -100,7 +100,7 @@ Full API documentation: [openapi.yaml](openapi.yaml)
 ## Features
 
 ### Core Memory
-- **5-phase parallel search** — semantic vectors, trigram matching, full-text, graph traversal, pattern matching
+- **6-phase parallel search** — semantic vectors (`text-embedding-3-large` @ 1024 dims since July 2026), trigram matching, full-text (DE/EN), graph traversal, temporal + contradiction search — fused via Reciprocal Rank Fusion, with optional cross-encoder reranking (Pro) and honest abstention ("I don't know" below the evidence threshold)
 - **Duplicate detection** — 5-factor admission control prevents noise
 - **10 learning categories** — pattern, mistake, insight, research, architecture, and more
 - **Decision logging** — track choices with reasoning for traceability
@@ -114,6 +114,8 @@ Full API documentation: [openapi.yaml](openapi.yaml)
 
 ### Intelligence
 - **Contradiction Detection** — automatically flags conflicting facts
+- **Trust Weighting** — verified memories win near-ties over unverified agent claims (memory-poisoning defense, July 2026)
+- **Multi-tenant-safe vector search** — `hnsw.iterative_scan` keeps tenant/project filters from silently swallowing results; an embedding-dimension guard makes config drift loud instead of silently degrading search
 - **FadeMem Adaptive Decay** — important memories fade 6x slower
 - **Confidence Scoring** — 0-1 scores with temporal decay
 - **Bi-temporal Model** — event time + ingestion time
