@@ -164,8 +164,8 @@ The full whitepaper with methodology, run history and per-question results lives
 
 | Plan | Price | Calls/Day | Learnings | Entities | Knowledge Graph | Agentic Search + AI Reranker |
 |------|-------|-----------|-----------|----------|------------------|------------------------------|
-| **Free** | €0 forever | 200 | 1,000 | 100 | ✅ | — (simple hybrid search) |
-| **Pro** | €9/mo | 5,000 | 25,000 | 1,000 | ✅ | ✅ |
+| **Free** | €0 forever | 5,000 | 1,000 | 100 | ✅ | — (simple hybrid search) |
+| **Pro** | €9/mo | 50,000 | 25,000 | 1,000 | ✅ | ✅ |
 | **Team** | €19/mo | Unlimited | Unlimited | Unlimited | ✅ | ✅ |
 
 All 56 tools available in every plan — including interactive 3D knowledge graph visualization. Knowledge Graph included from Free.
