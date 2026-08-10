@@ -93,9 +93,7 @@ Full API documentation: [openapi.yaml](openapi.yaml)
 
 ## SDKs
 
-- **TypeScript:** `npm install @studiomeyer/memory-sdk` ([GitHub](https://github.com/studiomeyer-io/nex-sdk-typescript))
-- **Python:** `pip install nex-memory` ([GitHub](https://github.com/studiomeyer-io/nex-sdk-python))
-- **OpenAPI Spec:** [openapi.yaml](openapi.yaml) — generate clients for any language
+- **OpenAPI Spec:** [openapi.yaml](openapi.yaml) — generate a typed client for any language from the spec.
 
 ## Features
 
