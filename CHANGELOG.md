@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.3.0 (August 2026)
+
+Server-side release wave on the hosted service (memory.studiomeyer.io). No breaking changes; all 56 tools keep their shapes.
+
+- **Context that respects your working area:** projects can be grouped into working areas (a client area, a product area). Session context and proactive suggestions now rank knowledge from the area you are working in first; facts from other areas still surface, ranked lower and labelled with their origin project. Configurable per deployment; without a mapping, behaviour is unchanged.
+- **Session project decides where knowledge files:** starting a session with a `project` now also sets where saves without their own project land, so a session's knowledge stops ending up untagged. Saves that should hold everywhere take `project: "global"`.
+- **German stemming in the full-text index:** the full-text half of hybrid search now stems German as well as English, matching the query side (which always asked in German). Existing entries were re-indexed; German-language recall improves, English is unaffected.
+- **The database now maintains the full-text index itself:** a trigger keeps the search index in step with every write path, and a new health check (`search_index_coverage`) reports coverage, so a gap can never grow silently.
+- **Repeat-mistake recall:** mistakes tracked with a recurrence count now rank higher when their topic comes up again, so the lesson that keeps repeating is the first one you see.
+
 ## 1.2.0 — August 2026
 
 Server-side release wave on the hosted service (memory.studiomeyer.io). No breaking changes — all 56 tools keep their shapes; six read tools gain an optional `trackUsage` parameter.
