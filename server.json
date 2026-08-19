@@ -3,6 +3,11 @@
   "name": "io.studiomeyer/memory",
   "title": "StudioMeyer Memory",
   "description": "Bi-temporal AI memory. 56 tools, knowledge graph, semantic search. EU-hosted, free tier.",
-  "version": "3.39.0",
-  "remotes": [{ "type": "streamable-http", "url": "https://memory.studiomeyer.io/mcp" }]
+  "version": "3.41.0",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://memory.studiomeyer.io/mcp"
+    }
+  ]
 }
