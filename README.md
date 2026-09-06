@@ -176,7 +176,7 @@ All 56 tools available in every plan — including interactive 3D knowledge grap
 
 - **Magic Link Authentication** — email verification on every sign-in. No passwords stored. You receive a single-use link that expires in 10 minutes. Nobody can access your data without proving email ownership.
 - **OAuth 2.1** with PKCE S256 — latest authentication standard
-- **Supabase Pro** (EU Frankfurt, Germany) — SOC 2 Type II, GDPR-ready
+- **Own Postgres in the EU** (Hetzner Nuremberg, Germany) — GDPR-ready, no third-party database provider
 - **Row Level Security** — tenant isolation at database level
 - **Secret Scanner** — prevents accidental storage of API keys/passwords
 - **Data Export** — `GET /api/export` anytime
